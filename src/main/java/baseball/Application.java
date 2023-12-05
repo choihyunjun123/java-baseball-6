@@ -21,7 +21,8 @@ public class Application {
     private static final GameLogic gameLogic = new GameLogic();
 
     public static void inputNum() {
-        System.out.println(randomNum);
+        randomNum = randomNumber.generateNum();
+//        System.out.println(randomNum);
         inputNum = inputView.inputNum();
         try {
             verify.inputNum(inputNum);
@@ -37,11 +38,18 @@ public class Application {
         if (strikeBall[STRIKE_POSITION] != 3) {
             inputNum();
         }
+        restart();
+    }
+
+    public static void restart() {
+        String result = inputView.restart();
+        if (result.equals("1")) {
+            inputNum();
+        }
     }
 
     public static void main(String[] args) {
         outputView.start();
-        randomNum = randomNumber.generateNum();
         inputNum();
     }
 }
