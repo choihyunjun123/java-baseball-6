@@ -14,7 +14,7 @@ public class Verify {
 
     public void length(String num) {
         if (num.length() != INPUT_LENGTH) {
-            throw new IllegalArgumentException("3자리를 입력해 주세요");
+            throw new IllegalArgumentException();
         }
     }
 

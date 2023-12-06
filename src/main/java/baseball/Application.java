@@ -21,20 +21,20 @@ public class Application {
     private static final GameLogic gameLogic = new GameLogic();
 
     public static void inputNum() {
-        randomNum = randomNumber.generateNum();
-//        System.out.println(randomNum);
+        System.out.println(randomNum);
         inputNum = inputView.inputNum();
         try {
             verify.inputNum(inputNum);
             gameLogic();
         } catch (IllegalArgumentException e) {
             outputView.error(e.getMessage());
-            inputNum();
+//            inputNum();
         }
     }
 
     public static void gameLogic() {
         int[] strikeBall = gameLogic.strikeBall(randomNum, inputNum);
+        outputView.result(strikeBall);
         if (strikeBall[STRIKE_POSITION] != 3) {
             inputNum();
         }
@@ -44,12 +44,14 @@ public class Application {
     public static void restart() {
         String result = inputView.restart();
         if (result.equals("1")) {
+            randomNum = randomNumber.generateNum();
             inputNum();
         }
     }
 
     public static void main(String[] args) {
         outputView.start();
+        randomNum = randomNumber.generateNum();
         inputNum();
     }
 }
