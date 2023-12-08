@@ -20,7 +20,7 @@ public class Verify {
 
     public void numbers(String num) {
         if (!num.matches(INPUT_CONTENT_REGEX)) {
-            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
+            throw new IllegalArgumentException();
         }
     }
 }

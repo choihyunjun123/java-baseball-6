@@ -23,13 +23,8 @@ public class Application {
     public static void inputNum() {
         System.out.println(randomNum);
         inputNum = inputView.inputNum();
-        try {
-            verify.inputNum(inputNum);
-            gameLogic();
-        } catch (IllegalArgumentException e) {
-            outputView.error(e.getMessage());
-//            inputNum();
-        }
+        verify.inputNum(inputView.inputNum());
+        gameLogic();
     }
 
     public static void gameLogic() {
